@@ -7,21 +7,45 @@ import { StatisticsComponent } from './statistics/statistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'reports', component: ReportsComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'add-admin', component: AddAdminComponent },
   {
     path: 'dashboard', component: LayoutComponent,
     children: [
-      { path: '', component: DashboardComponent },
-      { path: 'reports', component: ReportsComponent },
-      { path: 'statistics', component: StatisticsComponent },
+      { path: '', component: DashboardComponent }
+    ],
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'reports', component: LayoutComponent,
+    children: [
+      { path: '', component: ReportsComponent }
+    ],
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'statistics', component: LayoutComponent,
+    children: [
+      { path: '', component: StatisticsComponent }
+    ],
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'settings', component: LayoutComponent,
+    children: [
       { path: 'settings', component: SettingsComponent }
-    ]
+    ],
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'settings', component: LayoutComponent,
+    children: [
+      { path: 'add-admin', component: AddAdminComponent }
+    ],
+    canActivate: [AuthGuardService]
   }
 ];
 
