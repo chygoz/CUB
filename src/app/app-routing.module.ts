@@ -42,7 +42,7 @@ const routes: Routes = [
   {
     path: 'settings', component: LayoutComponent,
     children: [
-      { path: 'settings', component: SettingsComponent }
+      { path: '', component: SettingsComponent }
     ],
     canActivate: [AuthGuardService]
   }
