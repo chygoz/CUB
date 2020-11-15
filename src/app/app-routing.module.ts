@@ -42,14 +42,7 @@ const routes: Routes = [
   {
     path: 'settings', component: LayoutComponent,
     children: [
-      { path: '', component: SettingsComponent }
-    ],
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'add-admin', component: LayoutComponent,
-    children: [
-      { path: '', component: AddAdminComponent }
+      { path: 'settings', component: SettingsComponent }
     ],
     canActivate: [AuthGuardService]
   }
