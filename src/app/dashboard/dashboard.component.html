@@ -9,8 +9,8 @@
                     <div class="page-title-box">
                         <div class="row align-items-center">
                             <div class="col-sm-3">
-                                 <button type="button" class="btn btn-primary waves-effect waves-light">
-                                     <i class="fa fa-calendar-o"></i> Sun, 30 Nov 2020
+                                 <button type="button" class="btn btn-primary waves-effect waves-light" [dpDayPicker]="datePickerConfig" (onChange)="dateSelect($event)">
+                                     <i class="fa fa-calendar-o"></i> {{date | date: 'EEE, dd yyyy'}}
                                     </button>
                             </div>
                             <div class="col-sm-9">

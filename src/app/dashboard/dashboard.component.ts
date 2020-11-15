@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import 'chartjs-plugin-annotation';
+import { ThemeService } from 'ng2-charts';
+import { IDayCalendarConfig, DatePickerComponent } from "ng2-date-picker";
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,12 +17,17 @@ export class DashboardComponent implements OnInit {
   public chartLabels: any[];
   public chartColors: any[];
   public chartOptions: any;
+  date = new Date();
 
-  constructor() {
-    console.log("called here ")
+  datePickerConfig = {
+    format: 'DD-MM-YYYY'
+  };
+
+  constructor(private service: AppService) {
   }
 
   ngOnInit(): void {
+    this.getEventByDate();
     this.chartData = [
       {
         data: [3, 1, 4, 2, 5],
@@ -84,6 +92,31 @@ export class DashboardComponent implements OnInit {
         ]
       }
     };
+  }
+
+  dateSelect(event){
+    this.date = event;
+    this.getEventByDate();
+  }
+
+  getEventByDate(){
+    var d = this.date;
+        d.setDate(d.getDate() + 0 - (d.getDay() || 7));
+        let day = '' + d.getDate();
+        let month = '' + (d.getMonth() + 1);
+        if (d.getDate() < 10) {
+            day = '0' + day;
+        }
+        if (d.getMonth() < 9) {
+            month = '0' + month;
+        }
+        let date = d.getFullYear() + '-' + month + '-' + day;
+    let params = {
+      date: date
+    }
+    this.service.getEventBydate(params).subscribe((resp) => {
+      console.log(resp);
+    })
   }
 
 }
