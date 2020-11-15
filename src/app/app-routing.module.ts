@@ -10,15 +10,20 @@ import { LayoutComponent } from './layout/layout.component';
 import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-
+  {
+    path: '', component: LayoutComponent,
+    children: [
+      { path: '', component: DashboardComponent }
+    ],
+    canActivate: [AuthGuardService]
+  },
   {
     path: 'dashboard', component: LayoutComponent,
     children: [
       { path: '', component: DashboardComponent }
     ],
-    //canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService]
   },
   {
     path: 'reports', component: LayoutComponent,
