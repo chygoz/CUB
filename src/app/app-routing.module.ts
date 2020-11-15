@@ -12,12 +12,13 @@ import { AuthGuardService } from './auth-guard.service';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+
   {
     path: 'dashboard', component: LayoutComponent,
     children: [
       { path: '', component: DashboardComponent }
     ],
-    canActivate: [AuthGuardService]
+    //canActivate: [AuthGuardService]
   },
   {
     path: 'reports', component: LayoutComponent,
@@ -37,13 +38,6 @@ const routes: Routes = [
     path: 'settings', component: LayoutComponent,
     children: [
       { path: 'settings', component: SettingsComponent }
-    ],
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'settings', component: LayoutComponent,
-    children: [
-      { path: 'add-admin', component: AddAdminComponent }
     ],
     canActivate: [AuthGuardService]
   }
