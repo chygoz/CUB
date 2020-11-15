@@ -16,7 +16,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import {DpDatePickerModule} from 'ng2-date-picker';
+import { DpDatePickerModule } from 'ng2-date-picker';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import {DpDatePickerModule} from 'ng2-date-picker';
     ChartsModule,
     DpDatePickerModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
