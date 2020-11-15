@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   public chartColors: any[];
   public chartOptions: any;
   date = new Date();
+  eventData;
 
   datePickerConfig = {
     format: 'DD-MM-YYYY'
@@ -100,7 +101,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getEventByDate(){
-    var d = this.date;
+    var d = new Date(this.date);
         d.setDate(d.getDate() + 0 - (d.getDay() || 7));
         let day = '' + d.getDate();
         let month = '' + (d.getMonth() + 1);
@@ -112,10 +113,18 @@ export class DashboardComponent implements OnInit {
         }
         let date = d.getFullYear() + '-' + month + '-' + day;
     let params = {
+      //date: '2020-01-13'
       date: date
     }
     this.service.getEventBydate(params).subscribe((resp) => {
-      console.log(resp);
+      if(resp.status){
+        this.eventData = resp.data[0];
+      }else {
+        this.eventData = null;
+      }
+
+      console.log(this.eventData);
+
     })
   }
 
