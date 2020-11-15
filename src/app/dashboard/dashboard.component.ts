@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEventByDate();
+    this.getOneWeekData();
     this.chartData = [
       {
         data: [3, 1, 4, 2, 5],
@@ -101,8 +102,8 @@ export class DashboardComponent implements OnInit {
   }
 
   getEventByDate(){
+    
     var d = new Date(this.date);
-        d.setDate(d.getDate() + 0 - (d.getDay() || 7));
         let day = '' + d.getDate();
         let month = '' + (d.getMonth() + 1);
         if (d.getDate() < 10) {
@@ -113,7 +114,6 @@ export class DashboardComponent implements OnInit {
         }
         let date = d.getFullYear() + '-' + month + '-' + day;
     let params = {
-      //date: '2020-01-13'
       date: date
     }
     this.service.getEventBydate(params).subscribe((resp) => {
@@ -123,8 +123,12 @@ export class DashboardComponent implements OnInit {
         this.eventData = null;
       }
 
-      console.log(this.eventData);
+    })
+  }
 
+  getOneWeekData() {
+    this.service.getOneWeekData({}).subscribe((resp) => {
+      console.log(resp);
     })
   }
 
