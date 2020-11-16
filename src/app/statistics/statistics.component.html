@@ -29,45 +29,44 @@
             <!-- end page-title -->
            <div class="row">
                             <div class="col-xl-6">
-                                <div class="card m-b-30">
+                                <div class="card">
                                     <div class="card-body">
         
-                                        <h4 class="mt-0 header-title">Monthly</h4>
-                                        <div>
+                                        <h4 class="mt-0 header-title mb-4">Monthly</h4>
+                                     
                                         <div style="display: block">
-                                            
+                                            <canvas baseChart width="400" height="300"
+                                                    [datasets]="ChartData"
+                                                    [labels]="barChartLabels"
+                                                    [colors]="ChartColors"
+                                                    [options]="barChartOptions"
+                                                    [legend]="barChartLegend"
+                                                    [chartType]="barChartType"
+                                                ></canvas>
                                         </div>
-                                        </div>
+                                        
         
                                     </div>
                                 </div>
                             </div> <!-- end col -->
         
                             <div class="col-xl-6">
-                                <div class="card m-b-30">
+                               <div class="card">
                                     <div class="card-body">
         
-                                        <h4 class="mt-0 header-title">Bar Chart</h4>
-                                        <p class="sub-title d-inline-block text-truncate w-100">A bar chart is a way of showing data as
-                                            bars. It is sometimes used to show trend data, and the comparison of
-                                            multiple data sets side by side.</p>
-        
-                                        <ul class="list-inline widget-chart m-t-20 m-b-15 text-center">
-                                            <li class="list-inline-item">
-                                                <h5>3654</h5>
-                                                <p class="text-muted">Marketplace</p>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <h5>954</h5>
-                                                <p class="text-muted">Last week</p>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <h5>8462</h5>
-                                                <p class="text-muted">Last Month</p>
-                                            </li>
-                                        </ul>
-        
-                                        <canvas id="bar" height="300"></canvas>
+                                        <h4 class="mt-0 header-title mb-4">Yearly</h4>
+                                     
+                                        <div style="display: block">
+                                            <canvas baseChart width="400" height="300"
+                                                    [datasets]="ChartDataYearly"
+                                                    [labels]="polarChartLabels"
+                                                    [options]="barChartOptions"
+                                                      [colors]="ChartColors"
+                                                    [legend]="barChartLegend"
+                                                    [chartType]="barChartType"
+                                                ></canvas>
+                                        </div>
+                                        
         
                                     </div>
                                 </div>

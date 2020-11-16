@@ -6,32 +6,70 @@ export class DataService {
 
     constructor() { }
 
-    getSales() {
+    dynamicData() {
         return of({
-            "year1": {
-                "volumeSales": "0.09",
-                "valueSales": "1.23"
+            "Jan": {
+                "adultmale": "900",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
             },
-            "year2": {
-                "volumeSales": "0.11",
-                "valueSales": "1.56"
+            "Feb": {
+                "adultmale": "700",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
             },
-            "year3": {
-                "volumeSales": "0.12",
-                "valueSales": "1.69"
+            "Mar": {
+                "adultmale": "600",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
             },
-            "year4": {
-                "volumeSales": "0.12",
-                "valueSales": "1.64"
+            "Apr": {
+                "adultmale": "900",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
             },
-            "year5": {
-                "volumeSales": "0.10",
-                "valueSales": "1.41"
-            },
-            "total": {
-                "volumeSales": "0.55",
-                "valueSales": "7.53"
+            "May": {
+                "adultmale": "900",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
             }
+
+        });
+    }
+
+
+    dynamicDataYearly() {
+        return of({
+            "2017": {
+                "adultmale": "1200",
+                "adultfemale": "900",
+                "childmale": "1000",
+                "childfemale": "700"
+            },
+            "2018": {
+                "adultmale": "700",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
+            },
+            "2019": {
+                "adultmale": "600",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
+            },
+            "2020": {
+                "adultmale": "900",
+                "adultfemale": "1000.23",
+                "childmale": "1000.23",
+                "childfemale": "1000.23"
+            }
+
         });
     }
 

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 import { ChartsModule } from 'ng2-charts';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { DataService } from './data.service';
@@ -34,6 +35,7 @@ import { DataService } from './data.service';
     AddAdminComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
