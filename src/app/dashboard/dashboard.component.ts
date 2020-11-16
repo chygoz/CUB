@@ -40,7 +40,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getEventByDate(){
-    
     var d = new Date(this.date);
         let day = '' + d.getDate();
         let month = '' + (d.getMonth() + 1);
