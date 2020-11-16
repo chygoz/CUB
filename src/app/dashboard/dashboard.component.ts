@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   public chartColors: any[];
   public chartOptions: any;
   date = new Date();
+  weekDaysArr = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
   eventData;
 
   datePickerConfig = {
@@ -28,43 +29,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.getEventByDate();
     this.getOneWeekData();
-    this.chartData = [
-      {
-        data: [3, 1, 4, 2, 5],
-        label: "Male",
-        fill: true
-      },
-      {
-        data: [0, 8, 4, 6, 5],
-        label: "Female",
-        fill: true
-      }
-    ];
-    this.chartLabels = ["Jan", "Feb", "Mar", "Apr", "May"];
-    this.chartColors = [
-      {
-        backgroundColor: "#673d7e",
-        //borderColor: "rgba(0, 0, 0, 1)"
-      },
-      {
-        backgroundColor: "#fecc5a",
-        //borderColor: "rgba(0, 0, 0, 1)"
-      }
-    ];
-    this.chartOptions = {
-      scales: {
-        yAxes: [
-          {
-            ticks: {
-              beginAtZero: true,
-              stepSize: 1
-            }
-          }
-        ]
-      }
-    };
   }
 
   dateSelect(event){
@@ -100,7 +67,70 @@ export class DashboardComponent implements OnInit {
   getOneWeekData() {
     this.service.getOneWeekData({}).subscribe((resp) => {
       console.log(resp);
+      if(resp.status){
+        let graphData = [];
+        let weekArr = [];
+        let maleArr = [];
+        let femaleArr = [];
+        //playground
+        for(let i=6;i>=0;i--){
+          let day = new Date();
+          day.setDate(day.getDate() - i);
+          let week = day.getDay();
+          let exists = resp.data.find(arr => new Date(arr.eventDate).getDay() == day.getDay());
+          if(exists){
+            graphData.push({day: this.weekDaysArr[week], male: exists.male, female: exists.female});  
+            weekArr.push(this.weekDaysArr[week]);
+            maleArr.push(exists.male);
+            femaleArr.push(exists.female);
+          }else {
+            graphData.push({day: this.weekDaysArr[week], male: 0, female: 0});
+            weekArr.push(this.weekDaysArr[week]);
+            maleArr.push(0);
+            femaleArr.push(0);
+          }
+        }
+        //console.log(graphData);
+        this.loadLineChart(weekArr, maleArr, femaleArr);
+      }
     })
+  }
+
+  loadLineChart(weekArr, maleArr, femaleArr){
+    this.chartData = [
+      {
+        data: maleArr,
+        label: "Male",
+        fill: true
+      },
+      {
+        data: femaleArr,
+        label: "Female",
+        fill: true
+      }
+    ];
+    this.chartLabels = weekArr;
+    this.chartColors = [
+      {
+        backgroundColor: "#673d7e",
+      },
+      {
+        backgroundColor: "#fecc5a",
+      }
+    ];
+    this.chartOptions = {
+      legend: { display: false },
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+              stepSize: 10
+            }
+          }
+        ]
+      }
+    };
   }
 
 }
