@@ -33,24 +33,24 @@ export class DashboardComponent implements OnInit {
     this.chartData = [
       {
         data: [3, 1, 4, 2, 5],
-        label: "Anthracnose",
+        label: "Male",
         fill: true
       },
       {
         data: [0, 8, 4, 6, 5],
-        label: "Anthracnose",
+        label: "Female",
         fill: true
       }
     ];
     this.chartLabels = ["Jan", "Feb", "Mar", "Apr", "May"];
     this.chartColors = [
       {
-        backgroundColor: "rgba(0, 0, 0, 0.2)",
-        borderColor: "rgba(0, 0, 0, 1)"
+        backgroundColor: "#673d7e",
+        //borderColor: "rgba(0, 0, 0, 1)"
       },
       {
-        backgroundColor: "rgba(0, 0.5, 0, 0.2)",
-        borderColor: "rgba(0, 0, 0, 1)"
+        backgroundColor: "#fecc5a",
+        //borderColor: "rgba(0, 0, 0, 1)"
       }
     ];
     this.chartOptions = {
@@ -61,35 +61,6 @@ export class DashboardComponent implements OnInit {
               beginAtZero: true,
               stepSize: 1
             }
-          }
-        ]
-      },
-      annotation: {
-        drawTime: "beforeDatasetsDraw",
-        annotations: [
-          {
-            type: "box",
-            id: "a-box-1",
-            yScaleID: "y-axis-0",
-            yMin: 0,
-            yMax: 1,
-            backgroundColor: "#4cf03b"
-          },
-          {
-            type: "box",
-            id: "a-box-2",
-            yScaleID: "y-axis-0",
-            yMin: 1,
-            yMax: 2.7,
-            backgroundColor: "#fefe32"
-          },
-          {
-            type: "box",
-            id: "a-box-3",
-            yScaleID: "y-axis-0",
-            yMin: 2.7,
-            yMax: 5,
-            backgroundColor: "#fe3232"
           }
         ]
       }
