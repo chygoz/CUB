@@ -30,4 +30,11 @@ export class AppService {
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(`${api.api_url}getOneWeekData`, data, { headers });
   }
+
+  getYearlyStats(data): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(`${api.api_url}getYearStats`, data, { headers });
+  }
 }

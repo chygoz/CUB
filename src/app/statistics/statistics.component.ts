@@ -4,6 +4,7 @@ import { Label, Color } from 'ng2-charts';
 import { SingleDataSet } from 'ng2-charts';
 import { ChartType } from 'chart.js';
 import { NONE_TYPE } from '@angular/compiler';
+import { AppService } from '../app.service';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
@@ -51,14 +52,11 @@ export class StatisticsComponent implements OnInit {
     { backgroundColor: '#fd80d3' }
   ]
 
-  //Yearly
-
-
-
-  constructor(private _emp: DataService) {
+  constructor(private _emp: DataService, private service: AppService) {
   }
 
   ngOnInit() {
+    this.getYearlyData()
     this._emp.dynamicData().subscribe(data => {
       this.barChartLabels = Object.keys(data);
       this.barChartLabels.forEach(label => {
@@ -79,6 +77,12 @@ export class StatisticsComponent implements OnInit {
       });
     });
 
+  }
+
+  getYearlyData(){
+    this.service.getYearlyStats({}).subscribe((resp) => {
+      console.log(resp);
+    })
   }
 
 }
