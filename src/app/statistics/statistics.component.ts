@@ -38,10 +38,10 @@ export class StatisticsComponent implements OnInit {
 
 
   public ChartColors: Color[] = [
-    { backgroundColor: '#673d7e', borderColor: "" },
-    { backgroundColor: '#fecc5a', borderColor: "" },
-    { backgroundColor: '#127cc9', borderColor: "" },
-    { backgroundColor: '#fd80d3', borderColor: "" }
+    { backgroundColor: '#673d7e' },
+    { backgroundColor: '#fecc5a' },
+    { backgroundColor: '#127cc9' },
+    { backgroundColor: '#fd80d3' }
   ]
 
   public polarChartColors: Color[] = [
@@ -57,11 +57,6 @@ export class StatisticsComponent implements OnInit {
 
   constructor(private _emp: DataService) {
   }
-
-
-
-
-
 
   ngOnInit() {
     this._emp.dynamicData().subscribe(data => {

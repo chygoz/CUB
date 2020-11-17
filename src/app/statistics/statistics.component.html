@@ -28,50 +28,69 @@
             </div>
             <!-- end page-title -->
            <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card">
-                                    <div class="card-body">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <h4 class="mt-0 header-title mb-4">Monthly</h4>
+                            
+                            <div style="display: block">
+                                <canvas baseChart width="400" height="300"
+                                        [datasets]="ChartData"
+                                        [labels]="barChartLabels"
+                                        [colors]="ChartColors"
+                                        [options]="barChartOptions"
+                                        [legend]="barChartLegend"
+                                        [chartType]="barChartType"
+                                    ></canvas>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
         
-                                        <h4 class="mt-0 header-title mb-4">Monthly</h4>
-                                     
-                                        <div style="display: block">
-                                            <canvas baseChart width="400" height="300"
-                                                    [datasets]="ChartData"
-                                                    [labels]="barChartLabels"
-                                                    [colors]="ChartColors"
-                                                    [options]="barChartOptions"
-                                                    [legend]="barChartLegend"
-                                                    [chartType]="barChartType"
-                                                ></canvas>
-                                        </div>
-                                        
-        
-                                    </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                        <h4 class="mt-0 header-title mb-4">Yearly</h4>
+                            <div style="display: block">
+                                    <canvas baseChart width="400" height="300"
+                                            [datasets]="ChartDataYearly"
+                                            [labels]="polarChartLabels"
+                                            [options]="barChartOptions"
+                                            [colors]="ChartColors"
+                                            [legend]="barChartLegend"
+                                            [chartType]="barChartType"
+                                        ></canvas>
                                 </div>
-                            </div> <!-- end col -->
-        
-                            <div class="col-xl-6">
-                               <div class="card">
-                                    <div class="card-body">
-        
-                                        <h4 class="mt-0 header-title mb-4">Yearly</h4>
-                                     
-                                        <div style="display: block">
-                                            <canvas baseChart width="400" height="300"
-                                                    [datasets]="ChartDataYearly"
-                                                    [labels]="polarChartLabels"
-                                                    [options]="barChartOptions"
-                                                      [colors]="ChartColors"
-                                                    [legend]="barChartLegend"
-                                                    [chartType]="barChartType"
-                                                ></canvas>
-                                        </div>
-                                        
-        
-                                    </div>
-                                </div>
-                            </div> <!-- end col -->
-                        </div> <!-- end row -->
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title mb-4">POLAR CHART</h4>
+                            <div style="display: block">
+                                <canvas baseChart width="400" height="300"
+                                        [datasets]="ChartData"
+                                        [labels]="barChartLabels"
+                                        [colors]="polarChartColors"
+                                        [options]="barChartOptions"
+                                        [legend]="polarChartLegend"
+                                        [chartType]="polarChartType"
+                                    ></canvas>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+
+               <!-- end col -->
+            </div>
 
             
             <!-- end row -->

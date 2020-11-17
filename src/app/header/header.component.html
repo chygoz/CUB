@@ -3,7 +3,7 @@
 
     <!-- LOGO -->
     <div class="topbar-left">
-        <a href="index.html" class="logo">
+        <a href="/" class="logo">
             <span class="logo-light">
                 <img src="assets/images/logo.png" class="imgaligndashboard" alt="" height="80">
             </span>
@@ -19,7 +19,8 @@
                 <div class="dropdown notification-list nav-pro-img">
                     <a class="dropdown-toggle nav-link arrow-none nav-user" data-toggle="dropdown" href="#"
                         role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="assets/images/user.svg" alt="user" class="rounded-circle">
+                      
+                        <img src="assets/images/user.png" alt="user" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                         <a class="dropdown-item text-danger pointer" (click)="logout()">
@@ -32,14 +33,13 @@
         <ul class="list-inline menu-left mb-0">
             <li class="float-left">
                 <button class="button-menu-mobile open-left waves-effect">
-                    <i class="fa fa-bars"></i>
+                    <img src="./assets/images/bars.svg" alt="user" width="20">
                 </button>
             </li>
             <li class="d-none d-md-inline-block">
                 <form role="search" [formGroup] = "" class="app-search">
                     <div class="form-group mb-0">
-                        <input type="text" class="form-control" placeholder="Search..">
-                        <button type="s ubmit"><i class="fa fa-search"></i></button>
+                        <input type="text" class="form-control" placeholder="Search">
                     </div>
                 </form>
             </li>

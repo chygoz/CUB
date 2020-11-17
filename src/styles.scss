@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-
+.accountbg {
+    background: url(./assets/images/Bg.jpg);
+    position: absolute;
+    
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
 body {
   background-repeat: repeat;
-  background: #582e6e;
   font-family: "Poppins", sans-serif;
   color: #354558;
   font-size: 13px;
@@ -830,7 +837,7 @@ dt {
   margin-bottom: 0;
   padding: 0 10px 0 0;
   margin-left: 240px;
-  min-height: 70px;
+     min-height: 61px;
   -webkit-box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
           box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
 }
@@ -957,23 +964,22 @@ dt {
 
 .app-search {
   position: relative;
-  margin-top: 18px;
+  margin-top: 15px;
 }
 
 .app-search .form-control,
 .app-search .form-control:focus {
-  border: 1px solid #f0f4f7;
-  font-size: 13px;
-  height: 34px;
-  padding-left: 18px;
-  padding-right: 40px;
-  margin-right: 16px;
-  background: #f0f4f7;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-radius: 30px;
-  width: 200px;
-  border: none;
+ border: 1px solid #f0f4f7;
+    font-size: 10px;
+    height: 34px;
+    padding-left: 18px;
+    padding-right: 40px;
+    margin-right: 16px;
+    background: #f0f4f7;
+    box-shadow: none;
+    border-radius: 30px;
+    width: 150px;
+    border: none;
 }
 
 .app-search button {
@@ -991,7 +997,7 @@ dt {
   border: none;
   color: #5b7798;
   display: inline-block;
-  height: 70px;
+  height: 61px;
   width: 60px;
   background-color: #ffffff;
   font-size: 24px;
@@ -1026,7 +1032,7 @@ dt {
   color: #bca2c9;
     display: block;
     padding: 13px 20px;
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
     transition: all 0.5s;
     font-family: "Poppins", sans-serif;
@@ -1061,7 +1067,7 @@ dt {
   padding: 12px 20px !important;
   letter-spacing: 1px;
     font-size: 13px;
-    font-weight: bold;
+ 
   text-transform: uppercase;
   color: #b9c1eb;
 }
@@ -1447,7 +1453,8 @@ dt {
   color: #ced4da;
 }
 
-.left-side-menu-light .navbar-custom .notification-list .app-search .form-control::-webkit-input-placeholder {
+.left-side-menu-light .navbar-custom .notification-list .app-search 
+.form-control::-webkit-input-placeholder {
   color: #ced4da;
 }
 
@@ -1622,8 +1629,8 @@ dt {
   Buttons
 ===================*/
 .btn {
-  border-radius: 3px;
-  font-size: 13px;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 button:focus {
@@ -3255,9 +3262,9 @@ table.focus-on tbody tr.focused td {
 }
 .h5-title{
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     padding-bottom: 22px;
-    padding-top: 12px;
+    padding-top: 2px;
 }
 
 .formlogin{
@@ -3664,9 +3671,9 @@ table.focus-on tbody tr.focused td {
   padding-left: 20px;
 }
 .paddingbtn{
-        padding: 6px 40px;
-    font-weight: bold;
-    margin-right: 30px!important;
+    padding: 10px 48px;
+    font-weight: 600;
+    margin-left: 16px !important;
 }
 .paddingbtn1{
         padding: 3px 25px;
@@ -3708,4 +3715,10 @@ table.focus-on tbody tr.focused td {
 
 .bg-default1{
   background-color: #eaeaea;;
+}
+input::placeholder{
+  color:#640505;
+}
+.card{
+  border-radius: 10px;
 }

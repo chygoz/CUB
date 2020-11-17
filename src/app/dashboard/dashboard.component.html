@@ -8,14 +8,14 @@
         <div class="container-fluid">
             <div class="page-title-box">
                 <div class="row align-items-center">
-                    <div class="col-sm-3">
-                        <button type="button" class="btn btn-primary waves-effect waves-light"
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-primary paddingbtn waves-effect waves-light"
                             [dpDayPicker]="datePickerConfig" (onChange)="dateSelect($event)">
                             <i class="fa fa-calendar-o"></i> {{date | date: 'EEE, dd yyyy'}}
                         </button>
                     </div>
-                    <div class="col-sm-9">
-                        <div class="button-items float-left">
+                    <div class="col-sm-8">
+                        <div class="button-items float-right">
                             <button type="button"
                                 class="btn btn-primary waves-effect waves-light paddingbtn">Guzape</button>
                             <button type="button"
@@ -32,7 +32,7 @@
             <!-- end page-title -->
             <div class="row" *ngIf="eventData">
                 <!-- end col -->
-                <div class="col-xl-3 p-0">
+                <div class="col-xl-4 p-0">
                     <div class="col-sm-12 col-xl-12">
                         <div class="card">
                             <div class="card-heading p-4">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <!-- end col -->
-                <div class="col-xl-9">
+                <div class="col-xl-8">
                     <div class="card m-b-30">
                         <div class="card-body">
 

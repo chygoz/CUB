@@ -7,7 +7,7 @@
                 <div class="container-fluid">
                     <div class="page-title-box">
                         <div class="row align-items-center">
-                           <div class="col-sm-3">
+                           <div class="col-sm-3 pl-0">
                                 <div class="col-sm-9 col-xl-9">
                                     <div class="card" style="padding-bottom: 12px;padding-top: 12px;margin-right: 10px;">
                                         <div class="card-heading text-center">
@@ -19,15 +19,17 @@
                                              <h3 class="date-mo">{{date | date:'MMMM'}}</h3>
                                         </div>
                                     </div>
-                              </div>
-                                 <button type="button" class="btn btn-primary waves-effect waves-light"
-                                 [dpDayPicker]="datePickerConfig" (onChange)="dateSelect($event)">
+
+                                    <button type="button" class="btn btn-primary waves-effect waves-light"
+                                 [dpDayPicker]="datePickerConfig" (onChange)="dateSelect($event)" style="padding: 10px 29px;">
                                      <i class="fa fa-calendar-o"></i> {{date | date: 'EEE, dd yyyy'}}
                                     </button>
+                              </div>
+                                 
                             </div>
                             <div class="col-sm-9">
                                 <div class="col-sm-12 col-xl-12" style="margin-bottom: 92px;">
-                                    <div class="button-items float-left">
+                                    <div class="button-items float-right">
                                         <button type="button" class="btn btn-primary waves-effect waves-light paddingbtn">Guzape</button>
                                         <button type="button" class="btn btn-default waves-effect waves-light paddingbtn">Gwarimpa</button>
                                         <button type="button" class="btn btn-default waves-effect waves-light paddingbtn">Dubai</button>
