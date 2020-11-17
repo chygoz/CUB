@@ -15,7 +15,8 @@ export class StatisticsComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true,
   };
-  public barChartLabels: string[];
+  months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  public barChartLabels = [];
   public polarChartLabels = [];
   public barChartType: string = 'bar';
   public polarChartType: string = 'polarArea';
@@ -56,18 +57,23 @@ export class StatisticsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getYearlyData()
-    this._emp.dynamicData().subscribe(data => {
-      this.barChartLabels = Object.keys(data);
-      this.barChartLabels.forEach(label => {
-        this.ChartData[0].data.push(data[label]['adultmale']);
-        this.ChartData[1].data.push(data[label]['adultfemale']);
-        this.ChartData[2].data.push(data[label]['childmale']);
-        this.ChartData[3].data.push(data[label]['childfemale']);
-      });
-    });
+    this.getYearlyData();
+    this.getThisYearMonthStats();
+  }
 
-
+  getThisYearMonthStats(){
+    this.service.getThisYearMonthStats({}).subscribe((resp) => {
+      console.log(resp);
+      if(resp.status && resp.data.length > 0){
+        resp.data.forEach(element => {
+          this.barChartLabels.push(this.months[element.month-1]);
+          this.ChartData[0].data.push(element.male);
+          this.ChartData[1].data.push(element.female);
+          this.ChartData[2].data.push(element.boys);
+          this.ChartData[3].data.push(element.girls);
+        });
+      }
+    })
   }
 
   getYearlyData(){
