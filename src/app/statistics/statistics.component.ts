@@ -16,7 +16,7 @@ export class StatisticsComponent implements OnInit {
     responsive: true,
   };
   public barChartLabels: string[];
-  public polarChartLabels: string[];
+  public polarChartLabels = [];
   public barChartType: string = 'bar';
   public polarChartType: string = 'polarArea';
   public barChartLegend: boolean = false;
@@ -67,21 +67,20 @@ export class StatisticsComponent implements OnInit {
       });
     });
 
-    this._emp.dynamicDataYearly().subscribe(data => {
-      this.polarChartLabels = Object.keys(data);
-      this.polarChartLabels.forEach(label => {
-        this.ChartDataYearly[0].data.push(data[label]['adultmale']);
-        this.ChartDataYearly[1].data.push(data[label]['adultfemale']);
-        this.ChartDataYearly[2].data.push(data[label]['childmale']);
-        this.ChartDataYearly[3].data.push(data[label]['childfemale']);
-      });
-    });
 
   }
 
   getYearlyData(){
     this.service.getYearlyStats({}).subscribe((resp) => {
-      console.log(resp);
+      if(resp.status && resp.data.length > 0){
+        resp.data.forEach(element => {
+          this.polarChartLabels.push(element.year);
+          this.ChartDataYearly[0].data.push(element.male);
+          this.ChartDataYearly[1].data.push(element.female);
+          this.ChartDataYearly[2].data.push(element.boys);
+          this.ChartDataYearly[3].data.push(element.girls);
+        });
+      }
     })
   }
 
