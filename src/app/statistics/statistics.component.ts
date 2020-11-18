@@ -15,13 +15,54 @@ export class StatisticsComponent implements OnInit {
     scaleShowVerticalLines: false,
     responsive: true,
   };
-  months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   public barChartLabels = [];
   public polarChartLabels = [];
   public barChartType: string = 'bar';
   public polarChartType: string = 'polarArea';
   public barChartLegend: boolean = false;
   public polarChartLegend: boolean = true;
+
+  //PIE CHART start
+  view: any[] = [300, 300];
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showXAxisLabel = true;
+  xAxisLabel = "Country";
+  showYAxisLabel = true;
+  yAxisLabel = "Population";
+
+  colorScheme = {
+    domain: ["#5AA454"]
+  };
+
+  single: any[] = [
+    {
+      name: "A.Male",
+      value: 50
+    },
+    {
+      name: "A.Female",
+      value: 100
+    },
+    {
+      name: "c.Male",
+      value: 120
+    },
+    {
+      name: "c.Female",
+      value: 200
+    }
+  ];
+  public doughnutChartLabels: string[] = ['A.Male', 'A.Female', 'c.Male', 'c.Female'];
+  public doughnutChartData: number[] = [50, 100, 120, 200];
+  chartOptions = {
+    responsive: true
+  };
+
+  //PIE CHART end
 
 
   public ChartData: any[] = [
@@ -61,12 +102,12 @@ export class StatisticsComponent implements OnInit {
     this.getThisYearMonthStats();
   }
 
-  getThisYearMonthStats(){
+  getThisYearMonthStats() {
     this.service.getThisYearMonthStats({}).subscribe((resp) => {
       console.log(resp);
-      if(resp.status && resp.data.length > 0){
+      if (resp.status && resp.data.length > 0) {
         resp.data.forEach(element => {
-          this.barChartLabels.push(this.months[element.month-1]);
+          this.barChartLabels.push(this.months[element.month - 1]);
           this.ChartData[0].data.push(element.male);
           this.ChartData[1].data.push(element.female);
           this.ChartData[2].data.push(element.boys);
@@ -76,9 +117,9 @@ export class StatisticsComponent implements OnInit {
     })
   }
 
-  getYearlyData(){
+  getYearlyData() {
     this.service.getYearlyStats({}).subscribe((resp) => {
-      if(resp.status && resp.data.length > 0){
+      if (resp.status && resp.data.length > 0) {
         resp.data.forEach(element => {
           this.polarChartLabels.push(element.year);
           this.ChartDataYearly[0].data.push(element.male);

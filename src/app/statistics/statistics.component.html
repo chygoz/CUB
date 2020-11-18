@@ -12,7 +12,7 @@
                         
                     </div>
                     <div class="col-sm-9">
-                        <div class="button-items float-left">
+                        <div class="button-items float-right">
                             <button type="button"
                                 class="btn btn-primary waves-effect waves-light paddingbtn">Guzape</button>
                             <button type="button"
@@ -79,9 +79,28 @@
                                         [labels]="barChartLabels"
                                         [colors]="polarChartColors"
                                         [options]="barChartOptions"
-                                        [legend]="polarChartLegend"
+                                       [legend]="polarChartLegend"
                                         [chartType]="polarChartType"
                                     ></canvas>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="mt-0 header-title mb-4">PIE CHART</h4>
+                            <div style="display: block">
+                               <canvas baseChart width="400" height="300"
+                                    chartType="doughnut"
+                                    [data]="doughnutChartData"
+                                    [labels]="doughnutChartLabels"
+                                     
+                                    [options]="chartOptions"
+                                    [legend]="true">
+                                </canvas>
                             </div>
                             
 
