@@ -9,9 +9,11 @@
             <div class="page-title-box">
                 <div class="row align-items-center">
                     <div class="col-sm-4">
-                        <button type="button" class="btn btn-primary paddingbtn waves-effect waves-light"
+                        <button type="button" class="btn btn-primary paddingbtndt waves-effect
+                         waves-light"
                             [dpDayPicker]="datePickerConfig" (onChange)="dateSelect($event)">
-                            <i class="fa fa-calendar-o"></i> {{date | date: 'EEE, dd yyyy'}}
+                            <i class="fa fa-calendar-o"></i> 
+                            {{date | date: 'EEE, dd MMM yyyy'}}
                         </button>
                     </div>
                     <div class="col-sm-8">
@@ -42,10 +44,10 @@
                                     </i>
                                 </div>
                                 <div>
-                                    <h5 class="font-14">Total <br />Male</h5>
+                                    <h5 class="font-16">Total <br />Male</h5>
                                 </div>
                                 <h3 class="mt-4">{{eventData.male}}</h3>
-                                <div class="progress mt-4" style="height: 4px;">
+                                <div class="progress mt-4" style="height: 6px;">
                                     <div class="progress-bar bg-primary" role="progressbar" style="width: 68%"
                                         aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -63,10 +65,10 @@
                                     </i>
                                 </div>
                                 <div>
-                                    <h5 class="font-14">Total <br />Female</h5>
+                                    <h5 class="font-16">Total <br />Female</h5>
                                 </div>
                                 <h3 class="mt-4">{{eventData.female}}</h3>
-                                <div class="progress mt-4" style="height: 4px;">
+                                <div class="progress mt-4" style="height: 6px;">
                                     <div class="progress-bar bg-warning" role="progressbar" style="width: 68%"
                                         aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
