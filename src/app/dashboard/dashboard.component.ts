@@ -120,11 +120,24 @@ export class DashboardComponent implements OnInit {
     this.chartOptions = {
       legend: { display: false },
       scales: {
+        xAxes: [
+          {
+            gridLines: {
+              drawBorder: true,
+              display: false
+          }
+        }
+        ],
         yAxes: [
           {
+            gridLines: {
+              drawBorder: true,
+              display: false
+          },
             ticks: {
               beginAtZero: true,
-              stepSize: 10
+              suggestedMin: 50,
+              stepSize: 50
             }
           }
         ]
