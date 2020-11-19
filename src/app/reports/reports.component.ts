@@ -26,6 +26,17 @@ export class ReportsComponent implements OnInit {
   ];
   //chart code end
   //PIE code start
+  public doughnutChartLabels: string[] = ['A.Male', 'A.Female', 'c.Male', 'c.Female'];
+  public doughnutChartData: number[] = [50, 100, 120, 200];
+  chartOptions = {
+    responsive: true,
+    cutoutPercentage: 80,
+    position: 'bottom',
+    legend: {
+      display: true,
+      position: 'bottom'
+    }
+  };
 
   //PIE code end
 
