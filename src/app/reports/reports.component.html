@@ -159,25 +159,10 @@
                         <div class="card-body">
                             <h4 class="mt-0 header-title mb-4">Reports</h4>
                             <ol class="activity-feed mb-0">
-                                <li class="feed-item">
+                                <li class="feed-item" *ngFor="let item of eventReport">
                                     <div class="feed-item-list">
-                                        <p class="text-muted mb-1">Section A</p>
-                                        <p class="font-11 mt-0 mb-0 ">Andrei Coman magna sed porta finibus, risus posted
-                                            a new article:<br /> <b class="text-primary">Total: 342</b></p>
-                                    </div>
-                                </li>
-                                <li class="feed-item">
-                                    <div class="feed-item-list">
-                                        <p class="text-muted mb-1">Section B</p>
-                                        <p class="font-11 mt-0 mb-0 ">Andrei Coman magna sed porta finibus, risus posted
-                                            a new article:<br /> <b class="text-primary">Total: 342</b></p>
-                                    </div>
-                                </li>
-                                <li class="feed-item">
-                                    <div class="feed-item-list">
-                                        <p class="text-muted mb-1">Section C</p>
-                                        <p class="font-11 mt-0 mb-0 ">Andrei Coman magna sed porta finibus, risus posted
-                                            a new article:<br /> <b class="text-primary">Total: 342</b></p>
+                                        <p class="text-muted mb-1">{{item?.sectionId}}</p>
+                                        <p class="font-11 mt-0 mb-0 ">{{item?.report}}:<br /> <b class="text-primary">Total: {{item?.total}}</b></p>
                                     </div>
                                 </li>
                             </ol>

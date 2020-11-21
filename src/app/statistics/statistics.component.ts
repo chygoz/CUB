@@ -104,7 +104,6 @@ export class StatisticsComponent implements OnInit {
 
   getThisYearMonthStats() {
     this.service.getThisYearMonthStats({}).subscribe((resp) => {
-      console.log(resp);
       if (resp.status && resp.data.length > 0) {
         resp.data.forEach(element => {
           this.barChartLabels.push(this.months[element.month - 1]);

@@ -65,7 +65,6 @@ export class DashboardComponent implements OnInit {
 
   getOneWeekData() {
     this.service.getOneWeekData({}).subscribe((resp) => {
-      console.log(resp);
       if(resp.status){
         let graphData = [];
         let weekArr = [];
@@ -89,7 +88,6 @@ export class DashboardComponent implements OnInit {
             femaleArr.push(0);
           }
         }
-        //console.log(graphData);
         this.loadLineChart(weekArr, maleArr, femaleArr);
       }
     })

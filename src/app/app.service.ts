@@ -24,6 +24,13 @@ export class AppService {
     return this.http.post(`${api.api_url}getEventBydate`, data, { headers });
   }
 
+  getReportsBydate(data): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(`${api.api_url}getReportsBydate`, data, { headers });
+  }
+
   getOneWeekData(data): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.append('Accept', 'application/json');
