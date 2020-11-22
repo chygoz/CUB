@@ -4,6 +4,6 @@ export const api = {
     // getEvents: 'https://coza-njs.herokuapp.com/getEvents',
 
     //api_url: 'http://www.cozausheringboard.com/api/'
-    api_url: 'http://localhost:3000/'
-    //api_url: 'https://coza-njs.herokuapp.com/'
+    //api_url: 'http://localhost:3000/'
+    api_url: 'https://coza-njs.herokuapp.com/'
 }
