@@ -12,14 +12,14 @@ export class ReportsComponent implements OnInit {
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
-  public barChartLabels: Label[] = ['A.Male', 'A.Feale', 'C.Male', 'C.Female'];
+  public barChartLabels: Label[] = ['A.Male', 'A.Female', 'C.Male', 'C.Female'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartPlugins = [];
 
   public barChartData: ChartDataSets[] = [
     {
-      data: [65, 59, 80, 81], label: 'Series A',
+      data: [], label: '',
       stack: 'a',
       backgroundColor: ["#673d7e", "#fecc5a", "#127cc9", "#fd80d3"]
     }
@@ -27,7 +27,10 @@ export class ReportsComponent implements OnInit {
   //chart code end
   //PIE code start
   public doughnutChartLabels: string[] = ['A.Male', 'A.Female', 'c.Male', 'c.Female'];
-  public doughnutChartData: number[] = [50, 100, 120, 200];
+  public doughnutChartData: number[] = [];
+  public doughnutChartColors: Color[] = [
+    { backgroundColor: ["#673d7e", "#fecc5a", "#127cc9", "#fd80d3"] }
+  ]
   chartOptions = {
     responsive: true,
     cutoutPercentage: 80,
@@ -78,6 +81,8 @@ export class ReportsComponent implements OnInit {
     this.service.getEventBydate(params).subscribe((resp) => {
       if (resp.status) {
         this.eventData = resp.data[0];
+        this.loadBarchart();
+        this.loadDonoutChart();
       } else {
         this.eventData = null;
       }
@@ -107,6 +112,22 @@ export class ReportsComponent implements OnInit {
       }
 
     })
+  }
+
+  loadBarchart(){
+    this.barChartData = [
+      {
+        data: [this.eventData.male, this.eventData.female, this.eventData.boys, this.eventData.girls], label: 'Total',
+        stack: 'a',
+        backgroundColor: ["#673d7e", "#fecc5a", "#127cc9", "#fd80d3"]
+      }
+    ];
+  }
+
+  loadDonoutChart(){
+    //this.doughnutChartData = [this.eventData.male, this.eventData.female, this.eventData.boys, this.eventData.girls];
+    this.doughnutChartData = [this.eventData.male, this.eventData.female, this.eventData.boys, this.eventData.girls];
+    
   }
 
 }

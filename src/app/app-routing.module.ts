@@ -45,13 +45,6 @@ const routes: Routes = [
       { path: '', component: SettingsComponent }
     ],
     canActivate: [AuthGuardService]
-  },
-  {
-    path: 'add-admin', component: LayoutComponent,
-    children: [
-      { path: '', component: AddAdminComponent }
-    ],
-    canActivate: [AuthGuardService]
   }
 ];
 

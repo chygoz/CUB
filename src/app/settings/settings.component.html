@@ -1,124 +1,87 @@
-         <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="content-page">
-            <!-- Start content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="page-title-box">
-                         <div class="row align-items-center">
-                            <div class="col-sm-3">
-  <h6 style="font-weight: bold;">Admin Settings</h6>
-                            </div>
-                            <div class="col-sm-9">
-                               <div class="button-items float-right">
-                                   <a class="btn btn-primary waves-effect
-                                    waves-light paddingbtn">New Admin</a>
-                               </div>
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-3">
+                        <h6 style="font-weight: bold;">Admin Settings</h6>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="button-items float-right">
+                            <a class="btn btn-primary waves-effect waves-light paddingbtn" (click)="addAdmin()">New Admin</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+            </div>
+
+
+            <!-- end row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card m-b-30">
+                        <div class="card-body">
+
+                            <h5 class="mt-0 header-title mb-3">USER LIST</h5>
+
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th width="10%"></th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Access</th>
+                                            <!-- <th width="15%"></th> -->
+                                            <th width="15%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="admins">
+                                        <tr *ngFor="let item of admins">
+                                            <th scope="row">
+                                                <div class="mini-stat-icon float-right ">
+                                                    <i class="mdi mdi-tag-text-outline bg-default1 text-white">
+                                                        <img src="./assets/images/user1.svg" height="30">
+                                                    </i>
+                                                </div>
+                                            </th>
+                                            <td>{{item?.name}}</td>
+                                            <td>{{item?.email}}</td>
+                                            <td>Global</td>
+                                            <td>
+                                                <button type="button" (click)="removeAdmin(item)"
+                                                    class="btn btn-primary waves-effect waves-light paddingbtn2">Remove</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+
+                                    <tbody *ngIf="!admins">
+                                        <tr>
+                                            <td colspan="5" class="ndfSec">No Data Found!</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <!-- end row -->
                     </div>
-                   
-                    
-                    <!-- end row -->
-                    <div class="row">
-                         <div class="col-lg-12">
-                                <div class="card m-b-30">
-                                    <div class="card-body">
-        
-                                        <h5 class="mt-0 header-title mb-3">USER LIST</h5>
-                                       
-                                        <div class="table-responsive">
-                                            <table class="table mb-0">
-                                                <thead>
-                                                <tr>
-                                                    <th width="10%"></th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Access</th>
-                                                    <th width="15%"></th>
-                                                    <th width="15%"></th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <th scope="row"> 
-                                                        <div class="mini-stat-icon float-right ">
-                                        <i class="mdi mdi-tag-text-outline bg-default1 text-white">
-                                            <img src="./assets/images/user1.svg"  height="30" > 
-                                        </i>
-                                    </div>
-                                </th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>Global</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-default waves-effect waves-light paddingbtn1">Edit</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light paddingbtn2">Remove</button>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <th scope="row"> 
-                                                        <div class="mini-stat-icon float-right">
-                                        <i class="mdi mdi-tag-text-outline bg-default1 text-white">
-                                            <img src="./assets/images/user1.svg"  height="30" > 
-                                        </i>
-                                    </div>
-                                </th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>Global</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-default waves-effect waves-light paddingbtn1">Edit</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light paddingbtn2">Remove</button>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <th scope="row"> 
-                                                        <div class="mini-stat-icon float-right">
-                                        <i class="mdi mdi-tag-text-outline bg-default1 text-white">
-                                            <img src="./assets/images/user1.svg"  height="30" > 
-                                        </i>
-                                    </div>
-                                </th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>Global</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-default waves-effect waves-light paddingbtn1">Edit</button>
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary waves-effect waves-light paddingbtn2">Remove</button>
-                                                    </td>
-                                                </tr>                                                                                       
-                                                
-                                               
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    
-
-                    
-
                 </div>
-                <!-- container-fluid -->
-
             </div>
-           
+
+
+
 
         </div>
-       
-        <!-- ============================================================== -->
-        <!-- End Right content here -->
-        <!-- ============================================================== -->
+        <!-- container-fluid -->
 
-    
+    </div>
+
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->

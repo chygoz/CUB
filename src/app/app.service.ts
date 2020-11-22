@@ -17,6 +17,27 @@ export class AppService {
     return this.http.post(`${api.api_url}login`, data, { headers });
   }
 
+  register(data): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(`${api.api_url}register`, data, { headers });
+  }
+
+  getAdmins(data): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(`${api.api_url}getAdmins`, data, { headers });
+  }
+
+  removeAdminById(data): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'application/json');
+    headers = headers.append('Content-Type', 'application/json');
+    return this.http.post(`${api.api_url}removeAdminById`, data, { headers });
+  }
+
   getEventBydate(data): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.append('Accept', 'application/json');

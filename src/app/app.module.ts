@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -19,6 +20,7 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ChartsModule } from 'ng2-charts';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { DataService } from './data.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { DataService } from './data.service';
     AddAdminComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
@@ -44,6 +47,10 @@ import { DataService } from './data.service';
     ChartsModule,
     DpDatePickerModule
   ],
+  exports: [
+    MatDialogModule
+  ],
+  entryComponents: [AddAdminComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
