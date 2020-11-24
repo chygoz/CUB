@@ -3730,3 +3730,32 @@ input::placeholder{
 .card{
   border-radius: 10px;
 }
+button.dp-calendar-day.dp-current-month{
+  border: 1px solid #bdbebf;
+}
+
+.dp-calendar-day.dp-current-month:button:not(:disabled){
+  border: 1px solid #727272;
+}
+button.dp-nav-header-btn{
+  border:none;
+}
+.dp-calendar-nav-container{
+  border: 1px solid #e4e0e0 !important;
+}
+.dp-calendar-wrapper{
+  border: 1px solid #e4e0e0 !important;
+}
+.dp-calendar-weekday{
+  border: 1px solid #e4e0e0 !important;
+}
+.dp-calendar-nav-left,.dp-calendar-nav-right{
+  border: none;
+  background: none;
+}
+.dp-weekdays{
+font-size: 12px !important;
+}
+.dp-selected{
+  background: #8a5da2 !important;
+}
