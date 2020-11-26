@@ -18,6 +18,7 @@ export class AddAdminComponent implements OnInit {
     this.registerForm= this.formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      role: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.minLength(3)]]
     })
   }
@@ -29,7 +30,6 @@ export class AddAdminComponent implements OnInit {
       return;
   }
     this.service.register(this.registerForm.value).subscribe((resp) => {
-      console.log(resp);
       if(resp.status){
         this.dialog.closeAll();
       }else {
