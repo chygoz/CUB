@@ -27,7 +27,7 @@
                                 <span> Statistics </span>
                             </a>
                         </li>
-                          <li>
+                          <li *ngIf="userRole == 'Master'">
                             <a routerLink="/settings" routerLinkActive="mm-active" class="waves-effect">
                               <img src="assets/images/settings.svg" height="25">
                                 <span> Settings </span>

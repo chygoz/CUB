@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
     this.service.login(this.loginForm.value).subscribe((resp) => {
       if(resp.status){
         localStorage.setItem('token', resp.token);
+        localStorage.setItem('role', resp.role);
         this.router.navigate(['/dashboard']);
 
       }else {
