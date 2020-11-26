@@ -78,7 +78,9 @@ export class StatisticsComponent implements OnInit {
     { data: [], label: 'c.Femle' }
   ];
 
-
+  public doughnutChartColors: Color[] = [
+    { backgroundColor: ["#673d7e", "#fecc5a", "#127cc9", "#fd80d3"] }
+  ]
 
   public ChartColors: Color[] = [
     { backgroundColor: '#673d7e' },

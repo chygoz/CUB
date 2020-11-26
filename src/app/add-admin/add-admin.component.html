@@ -10,24 +10,37 @@
                             <h5 class="mt-0 header-title mb-3 text-center">Add Admin</h5>
                             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">
+                                <label for="example-text-input" class="col-3 col-form-label">
                                     Name</label>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input class="form-control" type="text" formControlName="name">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">
+                                <label for="example-text-input" class="col-3 col-form-label">
                                     Email</label>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input class="form-control" type="text" formControlName="email">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="example-text-input" class="col-2 col-form-label">
+                                <label for="example-text-input" class="col-3 col-form-label">
                                     Password</label>
-                                <div class="col-10">
+                                <div class="col-9">
                                     <input class="form-control" type="password" formControlName="password">
+                                </div>
+                            </div>
+                             <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">
+                                    Access</label>
+                                <div class="col-9">
+                                    <select class="form-control" formControlName="roles">
+                                        <option value="">Select</option>
+                                        <option value="Global">Global</option>
+                                        <option value="Gwarimpa">Gwarimpa</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Ilorin">Ilorin</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="alert-error">
@@ -35,12 +48,14 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <button (click)="close()" class="btn btn-primary waves-effect 
-                                                    waves-light">Cancel</button>
+                                    
                                 </div>
                                 <div class="col-sm-6">
+                                   
                                     <button type="submit" class="btn btn-primary waves-effect 
                                                     waves-light float-right">Submit</button>
+                                                     <button (click)="close()" class="btn btn-default waves-effect 
+                                                    waves-light float-right" style="margin-right: 6px;color: #673AB7;">Cancel</button>
                                 </div>
                             </div>
                             </form>

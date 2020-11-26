@@ -16,25 +16,26 @@ export class SettingsComponent implements OnInit {
     this.getAdmins();
   }
 
-  addAdmin(){
-    let dialogRef = this.dialog.open(AddAdminComponent, { panelClass: 'my-full-screen-dialog', width: '700px', });
+  addAdmin() {
+    let dialogRef = this.dialog.open(AddAdminComponent,
+      { panelClass: 'my-full-screen-dialog', width: '600px', });
 
     dialogRef.afterClosed().subscribe(() => {
       this.getAdmins();
     })
   }
 
-  getAdmins(){
+  getAdmins() {
     this.service.getAdmins({}).subscribe((resp) => {
-      if(resp.status){
+      if (resp.status) {
         this.admins = resp.data;
       }
       console.log(this.admins)
     })
   }
 
-  removeAdmin(user){
-    this.service.removeAdminById({_id: user._id}).subscribe((resp) => {
+  removeAdmin(user) {
+    this.service.removeAdminById({ _id: user._id }).subscribe((resp) => {
       console.log(resp);
       this.admins = null;
       this.getAdmins();
