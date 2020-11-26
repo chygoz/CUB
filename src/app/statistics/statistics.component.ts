@@ -57,7 +57,7 @@ export class StatisticsComponent implements OnInit {
     }
   ];
   public doughnutChartLabels: string[] = ['A.Male', 'A.Female', 'c.Male', 'c.Female'];
-  public doughnutChartData: number[] = [50, 100, 120, 200];
+  public doughnutChartData: number[] = [];
   chartOptions = {
     responsive: true
   };
@@ -127,6 +127,7 @@ export class StatisticsComponent implements OnInit {
           this.ChartDataYearly[1].data.push(element.female);
           this.ChartDataYearly[2].data.push(element.boys);
           this.ChartDataYearly[3].data.push(element.girls);
+          this.doughnutChartData = [element.male, element.female, element.boys, element.girls];
         });
       }
     })
